@@ -176,13 +176,18 @@
   </div>
 
   <!-- FORMULAIRE -->
-  <form action="https://formspree.io/f/xrbopjoq" method="POST">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre e-mail" required>
-    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
+<form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
+  <input type="text" name="name" placeholder="Votre nom" required>
+  <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
+  <input type="number" name="employees" placeholder="Nombre d’employés" min="1" required>
+  <input type="number" name="founded" placeholder="Année de création de l’entreprise" min="1900" max="2099" required>
+  <input type="text" name="city" placeholder="Ville de l’entreprise" required>
+  <textarea name="message" placeholder="Votre message" rows="5"></textarea>
+  <button type="submit">Envoyer</button>
+</form>
+
 </body>
 </html>
+
 
 
