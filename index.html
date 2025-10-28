@@ -255,6 +255,12 @@
   font-weight: 600;
 }
 
+  .title-container .subtitle {
+  font-size: 1rem;
+  color: #a8b9c9;      /* gris métallisé harmonisé avec le design */
+  margin-top: 8px;
+  margin-bottom: 20px; /* espace avant le formulaire */
+}
   
 /* Lightbox CSS */
 .lightbox {
@@ -329,21 +335,19 @@ lightbox.addEventListener('click', (e) => {
 });
 </script>
 
-  <!-- TITRE -->
-  <div class="title-container">
-    <h2>Discutons de vos projets</h2>
-  </div>
-
-  <!-- FORMULAIRE -->
-  <form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
-    <textarea name="message" placeholder="Votre message" rows="5"></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
+<!-- TITRE -->
+<div class="title-container">
+  <h2>Discutons de vos projets</h2>
+  <p class="subtitle">Alfred & Vous est un logiciel évolutif, nous pouvons l'adapter selon vos besoins</p>
+</div>
+  
+<!-- FORMULAIRE -->
+<form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
+  <input type="text" name="name" placeholder="Votre nom" required>
+  <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
+  <textarea name="message" placeholder="Votre message" rows="5"></textarea>
+  <button type="submit">Envoyer</button>
+</form>
   
 </body>
 </html>
-
-
-
