@@ -25,7 +25,7 @@
     /* ----------- LOGO ----------- */
     img.logo {
       max-width: 200px;
-      margin: 10px auto 10px; /* réduit espace haut et bas */
+      margin: 10px auto;
       display: block;
       opacity: 0;
       transform: translateY(-10px);
@@ -33,18 +33,15 @@
     }
 
     @keyframes logoFade {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ----------- VIDÉO ----------- */
     iframe {
-      width: 90%;           
-      max-width: 720px;     
-      height: 400px;        
-      margin: 10px auto 20px; 
+      width: 90%;
+      max-width: 720px;
+      height: 400px;
+      margin: 10px auto 20px;
       display: block;
       border-radius: 12px;
       border: 1px solid rgba(180, 200, 220, 0.2);
@@ -56,15 +53,7 @@
     .title-container {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
       margin: 10px 0 30px;
-    }
-
-    .title-container h1 {
-      font-size: 2rem;
-      margin: 0;
     }
 
     .title-container h2 {
@@ -82,9 +71,6 @@
       margin: 0 auto 60px;
       background: transparent;
       padding: 0;
-      border-radius: 0;
-      box-shadow: none;
-      backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -115,7 +101,6 @@
       font-style: italic;
     }
 
-    /* ----------- BOUTON ----------- */
     button {
       width: 100%;
       background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
@@ -135,35 +120,83 @@
       box-shadow: 0 0 20px rgba(150, 170, 190, 0.4);
     }
 
-/* ----------- RESPONSIVE ----------- */
-@media (max-width: 480px) {
-  .title-container {
-    flex-direction: row; /* garder emoji et titre sur la même ligne */
-    flex-wrap: nowrap;   /* empêche le texte de passer à la ligne */
-    gap: 5px;
-    justify-content: center;
-  }
+    /* ----------- SECTION PHOTOS ----------- */
+    .photo-gallery {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      text-align: center;
+      color: #d8e0e8;
+    }
 
-  .title-container h1 {
-    font-size: 1.3rem;  /* réduit légèrement l'emoji */
-  }
+    .photo-gallery h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
 
-  .title-container h2 {
-    font-size: 1.1rem;  /* réduit la taille du texte pour tenir sur une ligne */
-    white-space: nowrap; /* empêche le retour à la ligne */
-  }
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
 
-  iframe {
-    width: 95%;
-    height: 250px;
-  }
+    .photo-item {
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 1s ease forwards;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
 
-  img.logo {
-    max-width: 150px;
-  }
-}
+    .photo-item:nth-child(1) { animation-delay: 0.2s; }
+    .photo-item:nth-child(2) { animation-delay: 0.4s; }
+    .photo-item:nth-child(3) { animation-delay: 0.6s; }
+    .photo-item:nth-child(4) { animation-delay: 0.8s; }
 
+    .photo-item img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
 
+    .photo-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .photo-item p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #a8b9c9;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ----------- RESPONSIVE ----------- */
+    @media (max-width: 480px) {
+      .title-container h2 {
+        font-size: 1.3rem;
+        white-space: normal;
+      }
+
+      iframe {
+        width: 95%;
+        height: 250px;
+      }
+
+      img.logo {
+        max-width: 150px;
+      }
+
+      .photos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+    }
   </style>
 </head>
 
@@ -180,18 +213,34 @@
   </div>
 
   <!-- FORMULAIRE -->
-<form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
-  <input type="text" name="name" placeholder="Votre nom" required>
-  <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
-  <textarea name="message" placeholder="Votre message" rows="5"></textarea>
-  <button type="submit">Envoyer</button>
-</form>
+  <form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
+    <textarea name="message" placeholder="Votre message" rows="5"></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
 
+  <!-- ----------- SECTION PHOTOS ----------- -->
+  <section class="photo-gallery">
+    <h2>Découvrez notre logiciel</h2>
+    <div class="photos">
+      <div class="photo-item">
+        <img src="Accueil.png" alt="Capture 1">
+        <p>Alfred & Vous, simple et intuitif</p>
+      </div>
+      <div class="photo-item">
+        <img src="Stock.png" alt="Capture 2">
+        <p>Visualisez votre stock en un coup d'œil</p>
+      </div>
+      <div class="photo-item">
+        <img src="Recette.png" alt="Capture 3">
+        <p>Consultez et calculez vos recettes facilement</p>
+      </div>
+      <div class="photo-item">
+        <img src="Analyse.png" alt="Capture 4">
+        <p>Définissez et suivez votre stratégie</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
-
-
-
-
-
-
