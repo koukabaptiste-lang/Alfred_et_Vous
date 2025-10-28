@@ -25,15 +25,11 @@
     /* ----------- LOGO ----------- */
     img.logo {
       max-width: 200px;
-      margin: 0 auto 20px;
+      margin: 10px auto 10px; /* réduit espace haut et bas */
       display: block;
       opacity: 0;
-      transform: translateY(-15px);
+      transform: translateY(-10px);
       animation: logoFade 1.2s ease-out forwards;
-      background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      position: relative;
     }
 
     @keyframes logoFade {
@@ -48,7 +44,7 @@
       width: 85%;
       max-width: 640px;
       height: 360px;
-      margin: 0 auto 30px;
+      margin: 10px auto 20px; /* réduit l'espace entre logo et vidéo */
       display: block;
       border-radius: 12px;
       border: 1px solid rgba(180, 200, 220, 0.2);
@@ -56,44 +52,28 @@
       background-color: #000;
     }
 
-    /* ----------- TITRE ----------- */
-    h2 {
+    /* ----------- TITRE + EMOJI ----------- */
+    .title-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 10px 0 30px;
+    }
+
+    .title-container h1 {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .title-container h2 {
       font-size: 1.8rem;
-      margin: 30px 0 25px;
+      margin: 0;
       background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 6px rgba(150, 170, 190, 0.15);
-      opacity: 0;
-      transform: translateY(10px);
-      animation: titleFade 1.5s 0.5s ease-out forwards;
-      position: relative;
-      display: inline-block;
-      overflow: hidden;
-    }
-
-    h2::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
-      transform: skewX(-25deg);
-      animation: shine 2s infinite;
-    }
-
-    @keyframes titleFade {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes shine {
-      0% { left: -50%; }
-      100% { left: 100%; }
     }
 
     /* ----------- FORMULAIRE ----------- */
@@ -148,25 +128,36 @@
       font-size: 1rem;
       transition: all 0.25s ease;
       box-shadow: 0 0 12px rgba(100, 120, 140, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    button::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
-      transform: skewX(-25deg);
-      animation: shine 2.5s infinite;
     }
 
     button:hover {
       transform: scale(1.04);
       box-shadow: 0 0 20px rgba(150, 170, 190, 0.4);
+    }
+
+    /* ----------- RESPONSIVE ----------- */
+    @media (max-width: 480px) {
+      .title-container {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .title-container h1 {
+        font-size: 1.5rem;
+      }
+
+      .title-container h2 {
+        font-size: 1.4rem;
+      }
+
+      iframe {
+        width: 95%;
+        height: 200px;
+      }
+
+      img.logo {
+        max-width: 150px;
+      }
     }
 
   </style>
@@ -179,9 +170,10 @@
   <!-- VIDÉO -->
   <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
-  <!-- TITRE -->
-  <h1> 🚀 </h1>
-  <h2> Simplifiez votre quotidien avec Alfred & Vous</h2>
+  <!-- TITRE + EMOJI -->
+  <div class="title-container">
+    <h1>🚀</h1><h2>Simplifiez votre quotidien avec Alfred & Vous</h2>
+  </div>
 
   <!-- FORMULAIRE -->
   <form action="https://formspree.io/f/xrbopjoq" method="POST">
