@@ -204,21 +204,11 @@
   <!-- LOGO -->
   <img src="logo.png" alt="Alfred & Vous" class="logo">
 
-  <!-- VIDÉO -->
-  <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
+<!-- TITRE DE LA VIDÉO -->
+<h3 class="video-title">Alfred & Vous</h3>
 
-  <!-- TITRE -->
-  <div class="title-container">
-    <h2>Simplifiez votre quotidien avec Alfred & Vous</h2>
-  </div>
-
-  <!-- FORMULAIRE -->
-  <form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
-    <textarea name="message" placeholder="Votre message" rows="5"></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
+<!-- VIDÉO -->
+<iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
 <!-- ----------- SECTION PHOTOS ----------- -->
 <section class="photo-gallery">
@@ -226,7 +216,7 @@
   <div class="photos">
     <div class="photo-item">
       <img src="Accueil.png" alt="Capture 1">
-      <p>Alfred & Vous, simple et intuitif</p>
+      <p>Alfred & Vous, Simple et Intuitif</p>
     </div>
     <div class="photo-item">
       <img src="Stock.png" alt="Capture 2">
@@ -238,7 +228,7 @@
     </div>
     <div class="photo-item">
       <img src="Analyse.png" alt="Capture 4">
-      <p>Définissez et suivez votre stratégie</p>
+      <p>Définissez et suivez l'évolution de votre stratégie</p>
     </div>
   </div>
 </section>
@@ -251,6 +241,16 @@
 </div>
 
 <style>
+/* Titre vidéo CSS */
+  .video-title {
+  font-size: 1.6rem;
+  color: #d8e0e8;
+  margin: 15px 0 10px;
+  text-align: center;
+  font-weight: 600;
+}
+
+  
 /* Lightbox CSS */
 .lightbox {
   display: none;
@@ -324,6 +324,20 @@ lightbox.addEventListener('click', (e) => {
 });
 </script>
 
+  <!-- TITRE -->
+  <div class="title-container">
+    <h2>Discutons de vos projets</h2>
+  </div>
+
+  <!-- FORMULAIRE -->
+  <form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
+    <textarea name="message" placeholder="Votre message" rows="5"></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+  
 </body>
 </html>
+
 
