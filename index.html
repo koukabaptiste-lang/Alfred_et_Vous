@@ -37,6 +37,14 @@
     }
 
     /* ----------- VIDÉO ----------- */
+    .video-title {
+      font-size: 2rem;
+      color: #d8e0e8;
+      margin: 25px 0 20px;
+      text-align: center;
+      font-weight: 600;
+    }
+    
     iframe {
       width: 90%;
       max-width: 720px;
@@ -49,9 +57,11 @@
       background-color: #000;
     }
 
-    /* ----------- TITRE ----------- */
+    /* ----------- TITRE & SOUS-TITRE (Formulaire) ----------- */
     .title-container {
       display: flex;
+      flex-direction: column; /* Ajouté pour empiler titre et sous-titre */
+      align-items: center;   /* Centre les éléments */
       justify-content: center;
       margin: 10px 0 30px;
     }
@@ -63,6 +73,13 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 6px rgba(150, 170, 190, 0.15);
+    }
+    
+    .title-container .subtitle {
+      font-size: 1rem;
+      color: #a8b9c9;  /* gris métallisé harmonisé avec le design */
+      margin-top: 8px;
+      margin-bottom: 20px; /* espace avant le formulaire */
     }
 
     /* ----------- FORMULAIRE ----------- */
@@ -147,21 +164,22 @@
       animation: fadeInUp 1s ease forwards;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
-
-    .photo-item:nth-child(1) { animation-delay: 0.2s; }
-    .photo-item:nth-child(2) { animation-delay: 0.4s; }
-    .photo-item:nth-child(3) { animation-delay: 0.6s; }
-    .photo-item:nth-child(4) { animation-delay: 0.8s; }
-
+    
     .photo-item img {
       width: 100%;
       border-radius: 12px;
       transition: transform 0.3s ease;
+      cursor: pointer; /* Ajouté pour indiquer que l'image est cliquable */
     }
 
     .photo-item img:hover {
       transform: scale(1.05);
     }
+
+    .photo-item:nth-child(1) { animation-delay: 0.2s; }
+    .photo-item:nth-child(2) { animation-delay: 0.4s; }
+    .photo-item:nth-child(3) { animation-delay: 0.6s; }
+    .photo-item:nth-child(4) { animation-delay: 0.8s; }
 
     .photo-item p {
       margin-top: 10px;
@@ -174,6 +192,49 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+    
+    /* ----------- LIGHTBOX ----------- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      text-align: center;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      margin: auto;
+      display: block;
+    }
+
+    .lightbox p {
+      color: #d8e0e8;
+      margin-top: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close:hover {
+      color: #bbb;
     }
 
     /* ----------- RESPONSIVE ----------- */
@@ -192,10 +253,10 @@
         max-width: 150px;
       }
 
-        .video-title {
-    font-size: 1.6rem;       
-    margin: 20px 0 15px;
-  }
+      .video-title {
+        font-size: 1.6rem;
+        margin: 20px 0 15px;
+      }
 
       .photos {
         grid-template-columns: 1fr;
@@ -206,148 +267,80 @@
 </head>
 
 <body>
-  <!-- LOGO -->
+
   <img src="logo.png" alt="Alfred & Vous" class="logo">
 
-<!-- TITRE DE LA VIDÉO -->
-<h3 class="video-title">Alfred & Vous</h3>
+  <h3 class="video-title">Alfred & Vous</h3>
+  <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
-<!-- VIDÉO -->
-<iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
+  <section class="photo-gallery">
+    <h2>Découvrez notre logiciel</h2>
+    <div class="photos">
+      <div class="photo-item">
+        <img src="Accueil.png" alt="Capture 1">
+        <p>Alfred & Vous, Simple et Intuitif</p>
+      </div>
+      <div class="photo-item">
+        <img src="Stock.png" alt="Capture 2">
+        <p>Visualisez votre stock en un coup d'œil</p>
+      </div>
+      <div class="photo-item">
+        <img src="Recette.png" alt="Capture 3">
+        <p>Consultez et calculez vos recettes facilement</p>
+      </div>
+      <div class="photo-item">
+        <img src="Analyse.png" alt="Capture 4">
+        <p>Définissez et suivez l'évolution de votre stratégie</p>
+      </div>
+    </div>
+  </section>
 
-<!-- ----------- SECTION PHOTOS ----------- -->
-<section class="photo-gallery">
-  <h2>Découvrez notre logiciel</h2>
-  <div class="photos">
-    <div class="photo-item">
-      <img src="Accueil.png" alt="Capture 1">
-      <p>Alfred & Vous, Simple et Intuitif</p>
-    </div>
-    <div class="photo-item">
-      <img src="Stock.png" alt="Capture 2">
-      <p>Visualisez votre stock en un coup d'œil</p>
-    </div>
-    <div class="photo-item">
-      <img src="Recette.png" alt="Capture 3">
-      <p>Consultez et calculez vos recettes facilement</p>
-    </div>
-    <div class="photo-item">
-      <img src="Analyse.png" alt="Capture 4">
-      <p>Définissez et suivez l'évolution de votre stratégie</p>
-    </div>
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <p id="lightbox-caption"></p>
   </div>
-</section>
-
-<!-- ----------- LIGHTBOX ----------- -->
-<div id="lightbox" class="lightbox">
-  <span class="close">&times;</span>
-  <img class="lightbox-content" id="lightbox-img">
-  <p id="lightbox-caption"></p>
-</div>
-
-<style>
-/* Titre vidéo CSS */
-  .video-title {
-  font-size: 2rem;
-  color: #d8e0e8;
-  margin: 25px 0 20px;
-  text-align: center;
-  font-weight: 600;
-}
-
-  .title-container .subtitle {
-  font-size: 1rem;
-  color: #a8b9c9;      /* gris métallisé harmonisé avec le design */
-  margin-top: 8px;
-  margin-bottom: 20px; /* espace avant le formulaire */
-}
   
-/* Lightbox CSS */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.8);
-  text-align: center;
-}
-
-.lightbox-content {
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 12px;
-  margin: auto;
-  display: block;
-}
-
-.lightbox p {
-  color: #d8e0e8;
-  margin-top: 10px;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.close:hover {
-  color: #bbb;
-}
-</style>
-
-<script>
-// Ouvre la lightbox au clic sur une image
-const images = document.querySelectorAll('.photo-item img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const lightboxCaption = document.getElementById('lightbox-caption');
-const closeBtn = document.querySelector('.close');
-
-images.forEach(img => {
-  img.addEventListener('click', () => {
-    lightbox.style.display = 'block';
-    lightboxImg.src = img.src;
-    lightboxCaption.textContent = img.nextElementSibling.textContent;
-  });
-});
-
-// Fermer la lightbox avec la croix
-closeBtn.addEventListener('click', () => {
-  lightbox.style.display = 'none';
-});
-
-// Fermer en cliquant en dehors de l'image
-lightbox.addEventListener('click', (e) => {
-  if(e.target === lightbox) {
-    lightbox.style.display = 'none';
-  }
-});
-</script>
-
-<!-- TITRE -->
-<div class="title-container">
-  <h2>Discutons de vos projets</h2>
-  <p class="subtitle">Alfred & Vous est un logiciel évolutif, nous pouvons l'adapter selon vos besoins</p>
-</div>
+  <div class="title-container">
+    <h2>Discutons de vos projets</h2>
+    <p class="subtitle">Alfred & Vous est un logiciel évolutif, nous pouvons l'adapter selon vos besoins</p>
+  </div>
   
-<!-- FORMULAIRE -->
-<form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
-  <input type="text" name="name" placeholder="Votre nom" required>
-  <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
-  <textarea name="message" placeholder="Votre message" rows="5"></textarea>
-  <button type="submit">Envoyer</button>
-</form>
+  <form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
+    <textarea name="message" placeholder="Votre message" rows="5"></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <script>
+    // Ouvre la lightbox au clic sur une image
+    const images = document.querySelectorAll('.photo-item img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.close');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'block';
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.nextElementSibling.textContent;
+      });
+    });
+
+    // Fermer la lightbox avec la croix
+    closeBtn.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+
+    // Fermer en cliquant en dehors de l'image
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox) {
+        lightbox.style.display = 'none';
+      }
+    });
+  </script>
   
 </body>
 </html>
