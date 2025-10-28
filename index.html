@@ -30,6 +30,10 @@
       opacity: 0;
       transform: translateY(-15px);
       animation: logoFade 1.2s ease-out forwards;
+      background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
     }
 
     @keyframes logoFade {
@@ -56,13 +60,28 @@
     h2 {
       font-size: 1.8rem;
       margin: 30px 0 25px;
-      background: linear-gradient(90deg, #a8b9c9, #6b7c8e);
+      background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 6px rgba(150, 170, 190, 0.15);
       opacity: 0;
       transform: translateY(10px);
       animation: titleFade 1.5s 0.5s ease-out forwards;
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+      transform: skewX(-25deg);
+      animation: shine 2s infinite;
     }
 
     @keyframes titleFade {
@@ -70,6 +89,11 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    @keyframes shine {
+      0% { left: -50%; }
+      100% { left: 100%; }
     }
 
     /* ----------- FORMULAIRE ----------- */
@@ -81,6 +105,9 @@
       border-radius: 16px;
       box-shadow: 0 0 25px rgba(90, 110, 130, 0.15);
       backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     input, textarea {
@@ -94,10 +121,11 @@
       font-family: inherit;
       font-size: 1rem;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      box-sizing: border-box;
     }
 
     input:focus, textarea:focus {
-      border-color: #7fa8d8;
+      border-color: #8ca0b3;
       box-shadow: 0 0 6px rgba(130, 160, 200, 0.4);
       outline: none;
     }
@@ -110,7 +138,7 @@
     /* ----------- BOUTON ----------- */
     button {
       width: 100%;
-      background: linear-gradient(90deg, #4a6075, #8ca0b3);
+      background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
       color: #fff;
       border: none;
       padding: 12px;
@@ -120,13 +148,27 @@
       font-size: 1rem;
       transition: all 0.25s ease;
       box-shadow: 0 0 12px rgba(100, 120, 140, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    button::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+      transform: skewX(-25deg);
+      animation: shine 2.5s infinite;
     }
 
     button:hover {
       transform: scale(1.04);
-      background: linear-gradient(90deg, #607b93, #a5b8c9);
       box-shadow: 0 0 20px rgba(150, 170, 190, 0.4);
     }
+
   </style>
 </head>
 
@@ -138,7 +180,8 @@
   <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
   <!-- TITRE -->
-  <h2>🚀 Simplifiez votre quotidien avec Alfred & Vous</h2>
+  <h1> 🚀 </h1>
+  <h2> Simplifiez votre quotidien avec Alfred & Vous</h2>
 
   <!-- FORMULAIRE -->
   <form action="https://formspree.io/f/xrbopjoq" method="POST">
