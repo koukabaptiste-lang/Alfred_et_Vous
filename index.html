@@ -48,7 +48,21 @@
       max-width: 200px;
       margin: 30px auto 10px;
       display: block;
+      transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
       filter: drop-shadow(0 0 10px rgba(0,255,255,0.4));
+      border-radius: 12px;
+    }
+
+    img.logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 25px rgba(0,255,255,0.7));
+      box-shadow: 0 0 25px rgba(0,255,255,0.4), 0 0 50px rgba(0,255,255,0.2);
+      animation: logoPulse 1.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes logoPulse {
+      from { filter: drop-shadow(0 0 15px rgba(0,255,255,0.6)); }
+      to { filter: drop-shadow(0 0 35px rgba(0,255,255,0.9)); }
     }
 
     /* ----------- TITRE ----------- */
@@ -131,7 +145,7 @@
   <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
   <!-- FORMULAIRE -->
-  <form action="https://formspree.io/f/xxxxxxx" method="POST">
+  <form action="https://formspree.io/f/xrbopjoq" method="POST">
     <input type="text" name="name" placeholder="Votre nom" required>
     <input type="email" name="email" placeholder="Votre e-mail" required>
     <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
