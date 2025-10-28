@@ -10,12 +10,13 @@
       font-family: "Poppins", Arial, sans-serif;
       margin: 0;
       padding: 40px 20px;
-      color: #f8f9fa;
+      color: #e8f1f0;
       text-align: center;
-      background: radial-gradient(circle at top right, #0a0f24, #0a0d18 60%, #000);
+      background: radial-gradient(circle at top right, #041b20, #061013 60%, #000);
       background-image: 
-        radial-gradient(circle at 20% 20%, rgba(0,255,255,0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(0,255,180,0.06) 0%, transparent 50%);
+        radial-gradient(circle at 30% 30%, rgba(0, 255, 180, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(0, 180, 255, 0.05) 0%, transparent 50%);
+      overflow-x: hidden;
       animation: fadeIn 1.5s ease-in-out;
     }
 
@@ -24,18 +25,18 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Effet de circuits imprimés (subtil, lignes lumineuses animées) */
+    /* ----------- EFFET CIRCUIT SUBTIL ----------- */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: 
-        linear-gradient(90deg, rgba(0,255,200,0.04) 1px, transparent 1px),
-        linear-gradient(rgba(0,255,200,0.04) 1px, transparent 1px);
+        linear-gradient(90deg, rgba(0,150,200,0.05) 1px, transparent 1px),
+        linear-gradient(rgba(0,150,200,0.05) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
-      animation: circuitFlow 10s linear infinite;
+      animation: circuitFlow 15s linear infinite;
     }
 
     @keyframes circuitFlow {
@@ -46,31 +47,18 @@
     /* ----------- LOGO ----------- */
     img.logo {
       max-width: 200px;
-      margin: 30px auto 10px;
+      margin: 30px auto 20px;
       display: block;
-      transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
-      filter: drop-shadow(0 0 10px rgba(0,255,255,0.4));
-      border-radius: 12px;
+      opacity: 0;
+      transform: translateY(-15px);
+      animation: logoFade 1.2s ease-out forwards;
     }
 
-    img.logo:hover {
-      transform: scale(1.05);
-      filter: drop-shadow(0 0 25px rgba(0,255,255,0.7));
-      box-shadow: 0 0 25px rgba(0,255,255,0.4), 0 0 50px rgba(0,255,255,0.2);
-      animation: logoPulse 1.5s infinite alternate ease-in-out;
-    }
-
-    @keyframes logoPulse {
-      from { filter: drop-shadow(0 0 15px rgba(0,255,255,0.6)); }
-      to { filter: drop-shadow(0 0 35px rgba(0,255,255,0.9)); }
-    }
-
-    /* ----------- TITRE ----------- */
-    h2 {
-      font-size: 1.6rem;
-      color: #00ffe5;
-      text-shadow: 0 0 8px rgba(0,255,255,0.3);
-      margin-bottom: 30px;
+    @keyframes logoFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ----------- VIDÉO ----------- */
@@ -81,40 +69,68 @@
       margin: 20px auto 40px;
       display: block;
       border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0,255,200,0.15);
-      border: 1px solid rgba(0,255,200,0.15);
+      border: 1px solid rgba(0,200,200,0.2);
+      box-shadow: 0 0 20px rgba(0,200,255,0.1);
+      background-color: #000;
+    }
+
+    /* ----------- TITRE ----------- */
+    h2 {
+      font-size: 1.8rem;
+      margin: 40px 0 25px;
+      background: linear-gradient(90deg, #00f2ff, #00ff99);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 6px rgba(0,255,200,0.15);
+      opacity: 0;
+      transform: translateY(10px);
+      animation: titleFade 1.5s 0.5s ease-out forwards;
+    }
+
+    @keyframes titleFade {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* ----------- FORMULAIRE ----------- */
     form {
       max-width: 400px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.05);
+      margin: 0 auto 50px;
+      background: rgba(255,255,255,0.03);
       padding: 25px;
       border-radius: 16px;
-      box-shadow: 0 0 20px rgba(0,255,255,0.1);
-      backdrop-filter: blur(6px);
+      box-shadow: 0 0 20px rgba(0,255,200,0.05);
+      backdrop-filter: blur(8px);
     }
 
     input, textarea {
       width: 100%;
       padding: 12px;
       border-radius: 8px;
-      border: 1px solid rgba(0,255,255,0.2);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      margin-bottom: 10px;
+      border: 1px solid rgba(0,255,200,0.25);
+      background: rgba(255,255,255,0.04);
+      color: #e8f1f0;
+      margin-bottom: 12px;
       font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #00ffcc;
+      outline: none;
     }
 
     input::placeholder, textarea::placeholder {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.5);
     }
 
     /* ----------- BOUTON ----------- */
     button {
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      color: white;
+      width: 100%;
+      background: linear-gradient(90deg, #00c4cc, #00ff9c);
+      color: #001a1a;
       border: none;
       padding: 12px;
       border-radius: 8px;
@@ -122,13 +138,13 @@
       font-weight: bold;
       font-size: 1rem;
       transition: all 0.25s ease;
-      box-shadow: 0 0 15px rgba(0,255,255,0.3);
+      box-shadow: 0 0 12px rgba(0,255,200,0.2);
     }
 
     button:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(0,255,255,0.5);
-      background: linear-gradient(90deg, #00e5ff, #0088ff);
+      background: linear-gradient(90deg, #00f2ff, #00ffa3);
+      box-shadow: 0 0 20px rgba(0,255,200,0.3);
     }
 
   </style>
@@ -138,11 +154,11 @@
   <!-- LOGO -->
   <img src="logo.png" alt="Alfred & Vous" class="logo">
 
+  <!-- VIDÉO -->
+  <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
+
   <!-- TITRE -->
   <h2>🚀 Simplifiez votre quotidien avec Alfred & Vous</h2>
-
-  <!-- VIDÉO (intégrée YouTube) -->
-  <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
   <!-- FORMULAIRE -->
   <form action="https://formspree.io/f/xrbopjoq" method="POST">
