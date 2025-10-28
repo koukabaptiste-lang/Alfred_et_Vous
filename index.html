@@ -220,27 +220,110 @@
     <button type="submit">Envoyer</button>
   </form>
 
-  <!-- ----------- SECTION PHOTOS ----------- -->
-  <section class="photo-gallery">
-    <h2>Découvrez notre logiciel</h2>
-    <div class="photos">
-      <div class="photo-item">
-        <img src="Accueil.png" alt="Capture 1">
-        <p>Alfred & Vous, simple et intuitif</p>
-      </div>
-      <div class="photo-item">
-        <img src="Stock.png" alt="Capture 2">
-        <p>Visualisez votre stock en un coup d'œil</p>
-      </div>
-      <div class="photo-item">
-        <img src="Recette.png" alt="Capture 3">
-        <p>Consultez et calculez vos recettes facilement</p>
-      </div>
-      <div class="photo-item">
-        <img src="Analyse.png" alt="Capture 4">
-        <p>Définissez et suivez votre stratégie</p>
-      </div>
+<!-- ----------- SECTION PHOTOS ----------- -->
+<section class="photo-gallery">
+  <h2>Découvrez notre logiciel</h2>
+  <div class="photos">
+    <div class="photo-item">
+      <img src="Accueil.png" alt="Capture 1">
+      <p>Alfred & Vous, simple et intuitif</p>
     </div>
-  </section>
+    <div class="photo-item">
+      <img src="Stock.png" alt="Capture 2">
+      <p>Visualisez votre stock en un coup d'œil</p>
+    </div>
+    <div class="photo-item">
+      <img src="Recette.png" alt="Capture 3">
+      <p>Consultez et calculez vos recettes facilement</p>
+    </div>
+    <div class="photo-item">
+      <img src="Analyse.png" alt="Capture 4">
+      <p>Définissez et suivez votre stratégie</p>
+    </div>
+  </div>
+</section>
+
+<!-- ----------- LIGHTBOX ----------- -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+  <p id="lightbox-caption"></p>
+</div>
+
+<style>
+/* Lightbox CSS */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+  margin: auto;
+  display: block;
+}
+
+.lightbox p {
+  color: #d8e0e8;
+  margin-top: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close:hover {
+  color: #bbb;
+}
+</style>
+
+<script>
+// Ouvre la lightbox au clic sur une image
+const images = document.querySelectorAll('.photo-item img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const closeBtn = document.querySelector('.close');
+
+images.forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'block';
+    lightboxImg.src = img.src;
+    lightboxCaption.textContent = img.nextElementSibling.textContent;
+  });
+});
+
+// Fermer la lightbox avec la croix
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+// Fermer en cliquant en dehors de l'image
+lightbox.addEventListener('click', (e) => {
+  if(e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+</script>
+
 </body>
 </html>
+
