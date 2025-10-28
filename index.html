@@ -135,30 +135,34 @@
       box-shadow: 0 0 20px rgba(150, 170, 190, 0.4);
     }
 
-    /* ----------- RESPONSIVE ----------- */
-    @media (max-width: 480px) {
-      .title-container {
-        flex-direction: column;
-        gap: 5px;
-      }
+/* ----------- RESPONSIVE ----------- */
+@media (max-width: 480px) {
+  .title-container {
+    flex-direction: row; /* garder emoji et titre sur la même ligne */
+    flex-wrap: nowrap;   /* empêche le texte de passer à la ligne */
+    gap: 5px;
+    justify-content: center;
+  }
 
-      .title-container h1 {
-        font-size: 1.5rem;
-      }
+  .title-container h1 {
+    font-size: 1.3rem;  /* réduit légèrement l'emoji */
+  }
 
-      .title-container h2 {
-        font-size: 1.4rem;
-      }
+  .title-container h2 {
+    font-size: 1.1rem;  /* réduit la taille du texte pour tenir sur une ligne */
+    white-space: nowrap; /* empêche le retour à la ligne */
+  }
 
-      iframe {
-        width: 95%;
-        height: 250px;
-      }
+  iframe {
+    width: 95%;
+    height: 250px;
+  }
 
-      img.logo {
-        max-width: 150px;
-      }
-    }
+  img.logo {
+    max-width: 150px;
+  }
+}
+
 
   </style>
 </head>
@@ -170,7 +174,7 @@
   <!-- VIDÉO -->
   <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
-  <!-- TITRE + EMOJI -->
+  <!-- TITRE -->
   <div class="title-container">
     <h2>Simplifiez votre quotidien avec Alfred & Vous</h2>
   </div>
@@ -179,15 +183,13 @@
 <form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
   <input type="text" name="name" placeholder="Votre nom" required>
   <input type="tel" name="phone" placeholder="Numéro de téléphone" required>
-  <input type="number" name="employees" placeholder="Nombre d’employés" min="1" required>
-  <input type="number" name="founded" placeholder="Année de création de l’entreprise" min="1900" max="2099" required>
-  <input type="text" name="city" placeholder="Ville de l’entreprise" required>
   <textarea name="message" placeholder="Votre message" rows="5"></textarea>
   <button type="submit">Envoyer</button>
 </form>
 
 </body>
 </html>
+
 
 
 
