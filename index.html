@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma page vidéo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #fafafa;
+      color: #333;
+      text-align: center;
+    }
+    iframe {
+      width: 80%;
+      max-width: 600px;
+      height: 340px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+    }
+    form {
+      max-width: 400px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input, textarea {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenue sur ma page !</h1>
+
+  <!-- 🔹 Remplace l’URL YouTube ici -->
+  <iframe src="https://youtu.be/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
+
+  <h2>Contactez-moi</h2>
+
+  <!-- 🔹 Formulaire -->
+  <form action="https://formspree.io/f/xrbopjoq" method="POST">
+    <input type="text" name="name" placeholder="Votre nom" required>
+    <input type="email" name="email" placeholder="Votre e-mail" required>
+    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+</body>
+</html>
