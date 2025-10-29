@@ -25,7 +25,7 @@
     /* ----------- LOGO ----------- */
     img.logo {
       max-width: 200px;
-      margin: 10px auto;
+      margin: 20px auto;
       display: block;
       opacity: 0;
       transform: translateY(-10px);
@@ -40,131 +40,237 @@
     .video-title {
       font-size: 2rem;
       color: #d8e0e8;
-      margin: 25px 0 20px;
-      text-align: center;
+      margin: 50px 0 20px;
       font-weight: 600;
     }
-    
+
     iframe {
       width: 90%;
       max-width: 720px;
       height: 400px;
-      margin: 10px auto 20px;
+      margin: 0 auto 60px;
       display: block;
       border-radius: 12px;
       border: 1px solid rgba(180, 200, 220, 0.2);
       box-shadow: 0 0 20px rgba(120, 140, 160, 0.15);
       background-color: #000;
     }
-    /* ----------- Atouts du logiciel -----------*/
+
+    /* ----------- SECTION AVANTAGES (FEATURES) ----------- */
+    .features-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      text-align: center;
+      color: #d8e0e8;
+      padding: 0 30px;
+    }
+
+    .features-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
     .features-section h2 .emoji {
-  -webkit-text-fill-color: initial;
-  background: none;
-  margin-right: 8px;
-}
+      -webkit-text-fill-color: initial;
+      background: none;
+      margin-right: 8px;
+    }
 
-    .features-section {
-  max-width: 1000px;
-  margin: 50px auto;
-  text-align: center;
-  color: #d8e0e8;
-  padding: 0 30px;
-}
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
-.features-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 40px;
-  background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(180, 200, 220, 0.15);
+      border-radius: 16px;
+      padding: 25px 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(100, 120, 140, 0.15);
+    }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 0 20px; /* 👈 ajoute un espace à gauche et à droite */
-  box-sizing: border-box; /* évite tout débordement */
-}
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px rgba(150, 170, 190, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+    }
 
-.feature-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(180, 200, 220, 0.15);
-  border-radius: 16px;
-  padding: 25px 20px;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(100, 120, 140, 0.15);
-}
+    .feature-card .emoji {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 12px;
+    }
 
-.feature-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 20px rgba(150, 170, 190, 0.3);
-  background: rgba(255, 255, 255, 0.08);
-}
+    .feature-card h3 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
 
-.feature-card .emoji {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 12px;
-}
+    .feature-card p {
+      color: #a8b9c9;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
 
-.feature-card h3 {
-  font-size: 1.1rem;
-  color: #ffffff;
-  margin-bottom: 8px;
-}
+    /* ----------- GALERIE PHOTOS ----------- */
+    .highlight {
+      font-weight: 700;
+      position: relative;
+      color: #ffffff;
+    }
 
-.feature-card p {
-  color: #a8b9c9;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
+    .highlight::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #a8b9c9, #ffffff);
+      border-radius: 2px;
+    }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .features-section h2 {
-    font-size: 1.5rem;
-  }
-  .feature-card {
-    padding: 20px;
-  }
-}
+    .photo-gallery {
+      max-width: 900px;
+      margin: 60px auto;
+      text-align: center;
+      color: #d8e0e8;
+      padding: 0 20px;
+    }
 
-    /* ----------- TITRE & SOUS-TITRE (Formulaire) ----------- */
+    .photo-gallery h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .photo-item {
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeInUp 1s ease forwards;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .photo-item img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .photo-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .photo-item:nth-child(1) { animation-delay: 0.2s; }
+    .photo-item:nth-child(2) { animation-delay: 0.4s; }
+    .photo-item:nth-child(3) { animation-delay: 0.6s; }
+    .photo-item:nth-child(4) { animation-delay: 0.8s; }
+
+    .photo-item p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #a8b9c9;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ----------- LIGHTBOX ----------- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      text-align: center;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      margin: auto;
+      display: block;
+    }
+
+    .lightbox p {
+      color: #d8e0e8;
+      margin-top: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close:hover {
+      color: #bbb;
+    }
+
+    /* ----------- FORMULAIRE ----------- */
     .title-container {
       display: flex;
-      flex-direction: column; /* Ajouté pour empiler titre et sous-titre */
-      align-items: center;   /* Centre les éléments */
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      margin: 10px 0 30px;
+      margin: 60px 0 30px;
+      padding: 0 20px;
     }
 
     .title-container h2 {
       font-size: 1.8rem;
-      margin: 0;
+      margin: 0 0 10px 0;
       background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 6px rgba(150, 170, 190, 0.15);
     }
-    
+
     .title-container .subtitle {
       font-size: 1rem;
-      color: #a8b9c9;  /* gris métallisé harmonisé avec le design */
+      color: #a8b9c9;
       margin-top: 8px;
-      margin-bottom: 20px; /* espace avant le formulaire */
+      margin-bottom: 20px;
     }
 
-    /* ----------- FORMULAIRE ----------- */
     form {
       max-width: 400px;
-      margin: 0 auto 60px;
-      background: transparent;
-      padding: 0;
+      margin: 0 auto 80px;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 0 20px;
     }
 
     input, textarea {
@@ -211,132 +317,19 @@
       box-shadow: 0 0 20px rgba(150, 170, 190, 0.4);
     }
 
-    /* ----------- SECTION PHOTOS ----------- */
-
-.highlight {
-  font-weight: 700;
-  position: relative;
-  color: #ffffff; /* garde le texte clair */
-}
-
-.highlight::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 2px;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #a8b9c9, #ffffff);
-  border-radius: 2px;
-}
-
-    
-    .photo-gallery {
-      max-width: 900px;
-      margin: 20px auto 60px;
-      text-align: center;
-      color: #d8e0e8;
-    }
-
-    .photo-gallery h2 {
-      font-size: 1.8rem;
-      margin-bottom: 30px;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .photos {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .photo-item {
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fadeInUp 1s ease forwards;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-    
-    .photo-item img {
-      width: 100%;
-      border-radius: 12px;
-      transition: transform 0.3s ease;
-      cursor: pointer; /* Ajouté pour indiquer que l'image est cliquable */
-    }
-
-    .photo-item img:hover {
-      transform: scale(1.05);
-    }
-
-    .photo-item:nth-child(1) { animation-delay: 0.2s; }
-    .photo-item:nth-child(2) { animation-delay: 0.4s; }
-    .photo-item:nth-child(3) { animation-delay: 0.6s; }
-    .photo-item:nth-child(4) { animation-delay: 0.8s; }
-
-    .photo-item p {
-      margin-top: 10px;
-      font-size: 1rem;
-      color: #a8b9c9;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    /* ----------- LIGHTBOX ----------- */
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      padding-top: 60px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-      text-align: center;
-    }
-
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 12px;
-      margin: auto;
-      display: block;
-    }
-
-    .lightbox p {
-      color: #d8e0e8;
-      margin-top: 10px;
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 35px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .close:hover {
-      color: #bbb;
-    }
-
     /* ----------- RESPONSIVE ----------- */
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
+      .features-section h2,
+      .photo-gallery h2,
       .title-container h2 {
-        font-size: 1.3rem;
-        white-space: normal;
+        font-size: 1.5rem;
       }
+      .feature-card {
+        padding: 20px;
+      }
+    }
 
+    @media (max-width: 480px) {
       iframe {
         width: 95%;
         height: 250px;
@@ -344,11 +337,6 @@
 
       img.logo {
         max-width: 150px;
-      }
-
-      .video-title {
-        font-size: 1.6rem;
-        margin: 20px 0 15px;
       }
 
       .photos {
@@ -361,40 +349,41 @@
 
 <body>
 
+  <!-- LOGO -->
   <img src="logo.png" alt="Alfred & Vous" class="logo">
 
+  <!-- VIDÉO -->
   <h3 class="video-title">Alfred & Vous</h3>
   <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
-<h2><span class="emoji">🍰</span> <span class="video-title">Les atouts du logiciel</span></h2>
-  <div class="features-grid">
-    <div class="feature-card">
-      <span class="emoji">🧁</span>
-      <h3>Ultra simple à utiliser</h3>
-      <p>Prise en main en moins de 5 minutes — pas besoin d’être un expert en informatique.</p>
+  <!-- SECTION AVANTAGES -->
+  <section class="features-section">
+    <h2><span class="emoji">🍰</span>Les atouts du logiciel</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="emoji">🧁</span>
+        <h3>Ultra simple à utiliser</h3>
+        <p>Prise en main en moins de 5 minutes — pas besoin d’être un expert en informatique.</p>
+      </div>
+      <div class="feature-card">
+        <span class="emoji">📦</span>
+        <h3>Inventaires automatiques</h3>
+        <p>Visualisez votre stock en temps réel et recevez instantanément la liste des ingrédients à commander.</p>
+      </div>
+      <div class="feature-card">
+        <span class="emoji">🥣</span>
+        <h3>Recettes sans erreur</h3>
+        <p>Les proportions se recalculent toutes seules selon vos besoins de production.</p>
+      </div>
+      <div class="feature-card">
+        <span class="emoji">🚚</span>
+        <h3>Suivi de production complet</h3>
+        <p>Surveillez la cadence, les livraisons et l’utilisation des ingrédients directement depuis votre tablette.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="feature-card">
-      <span class="emoji">📦</span>
-      <h3>Inventaires automatiques</h3>
-      <p>Visualisez votre stock en temps réel et recevez instantanément la liste des ingrédients à commander.</p>
-    </div>
-
-    <div class="feature-card">
-      <span class="emoji">🥣</span>
-      <h3>Recettes sans erreur</h3>
-      <p>Les proportions se recalculent toutes seules selon vos besoins de production.</p>
-    </div>
-
-    <div class="feature-card">
-      <span class="emoji">🚚</span>
-      <h3>Suivi de production complet</h3>
-      <p>Surveillez la cadence, les livraisons et l’utilisation des ingrédients directement depuis votre tablette.</p>
-    </div>
-  </div>
-</section>
-
-  
+  <!-- SECTION GALERIE -->
   <section class="photo-gallery">
     <h2>Découvrez notre logiciel avec <span class="highlight">la tablette offerte !</span></h2>
     <div class="photos">
@@ -417,17 +406,19 @@
     </div>
   </section>
 
+  <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox">
     <span class="close">&times;</span>
     <img class="lightbox-content" id="lightbox-img">
     <p id="lightbox-caption"></p>
   </div>
-  
+
+  <!-- SECTION CONTACT -->
   <div class="title-container">
     <h2>Discutons de vos projets</h2>
     <p class="subtitle">Alfred & Vous est un logiciel évolutif, nous pouvons l'adapter selon vos besoins</p>
   </div>
-  
+
   <form id="contactForm" action="https://formspree.io/f/xrbopjoq" method="POST">
     <input type="text" name="name" placeholder="Votre nom" required>
     <input type="tel" name="phone" placeholder="Votre numéro de téléphone" required>
@@ -435,8 +426,8 @@
     <button type="submit">Envoyer</button>
   </form>
 
+  <!-- SCRIPT LIGHTBOX -->
   <script>
-    // Ouvre la lightbox au clic sur une image
     const images = document.querySelectorAll('.photo-item img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -451,25 +442,16 @@
       });
     });
 
-    // Fermer la lightbox avec la croix
     closeBtn.addEventListener('click', () => {
       lightbox.style.display = 'none';
     });
 
-    // Fermer en cliquant en dehors de l'image
     lightbox.addEventListener('click', (e) => {
       if(e.target === lightbox) {
         lightbox.style.display = 'none';
       }
     });
   </script>
-  
+
 </body>
 </html>
-
-
-
-
-
-
-
