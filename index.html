@@ -84,6 +84,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
+  padding: 0 20px; /* 👈 ajoute un espace à gauche et à droite */
+  box-sizing: border-box; /* évite tout débordement */
 }
 
 .feature-card {
@@ -364,7 +366,7 @@
   <h3 class="video-title">Alfred & Vous</h3>
   <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
-<h2><span class="emoji">🍰</span> Les atouts du logiciel</h2>
+<h2><span class="emoji">🍰</span> <span class="video-title">Les atouts du logiciel</span></h2>
   <div class="features-grid">
     <div class="feature-card">
       <span class="emoji">🧁</span>
@@ -464,6 +466,7 @@
   
 </body>
 </html>
+
 
 
 
