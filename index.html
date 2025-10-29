@@ -57,6 +57,13 @@
       background-color: #000;
     }
     /* ----------- Atouts du logiciel -----------*/
+
+    .features-section h2 .emoji {
+  -webkit-text-fill-color: initial;
+  background: none;
+  margin-right: 8px;
+}
+
     .features-section {
   max-width: 1000px;
   margin: 50px auto;
@@ -203,6 +210,25 @@
     }
 
     /* ----------- SECTION PHOTOS ----------- */
+
+.highlight {
+  font-weight: 700;
+  position: relative;
+  color: #ffffff; /* garde le texte clair */
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #a8b9c9, #ffffff);
+  border-radius: 2px;
+}
+
+    
     .photo-gallery {
       max-width: 900px;
       margin: 20px auto 60px;
@@ -338,7 +364,7 @@
   <h3 class="video-title">Alfred & Vous</h3>
   <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
-<h2>🍰</h2><section class="features-section">
+<h2><span class="emoji">🍰</span> Les atouts du logiciel</h2>
   <h2>Les atouts du logiciel</h2>
   <div class="features-grid">
     <div class="feature-card">
@@ -369,7 +395,7 @@
 
   
   <section class="photo-gallery">
-    <h2>Découvrez notre logiciel sur tablette (Offerte!)</h2>
+    <h2>Découvrez notre logiciel avec la <span class="highlight">tablette offerte !</span></h2>
     <div class="photos">
       <div class="photo-item">
         <img src="Accueil.png" alt="Capture 1">
@@ -439,6 +465,7 @@
   
 </body>
 </html>
+
 
 
 
