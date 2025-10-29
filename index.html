@@ -56,6 +56,71 @@
       box-shadow: 0 0 20px rgba(120, 140, 160, 0.15);
       background-color: #000;
     }
+    /* ----------- Atouts du logiciel -----------*/
+    .features-section {
+  max-width: 1000px;
+  margin: 50px auto;
+  text-align: center;
+  color: #d8e0e8;
+  padding: 0 20px;
+}
+
+.features-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  background: linear-gradient(120deg, #6b7c8e 20%, #a8b9c9 50%, #6b7c8e 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(180, 200, 220, 0.15);
+  border-radius: 16px;
+  padding: 25px 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(100, 120, 140, 0.15);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(150, 170, 190, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.feature-card .emoji {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.feature-card h3 {
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: #a8b9c9;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .features-section h2 {
+    font-size: 1.5rem;
+  }
+  .feature-card {
+    padding: 20px;
+  }
+}
 
     /* ----------- TITRE & SOUS-TITRE (Formulaire) ----------- */
     .title-container {
@@ -273,6 +338,36 @@
   <h3 class="video-title">Alfred & Vous</h3>
   <iframe src="https://www.youtube.com/embed/ZKBt7RxUKkw" frameborder="0" allowfullscreen></iframe>
 
+<section class="features-section">
+  <h2>🍰 Les atouts du logiciel</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <span class="emoji">🧁</span>
+      <h3>Ultra simple à utiliser</h3>
+      <p>Prise en main en moins de 5 minutes — pas besoin d’être un expert en informatique.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="emoji">📦</span>
+      <h3>Inventaires automatiques</h3>
+      <p>Visualisez votre stock en temps réel et recevez instantanément la liste des ingrédients à commander.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="emoji">🥣</span>
+      <h3>Recettes sans erreur</h3>
+      <p>Les proportions se recalculent toutes seules selon vos besoins de production.</p>
+    </div>
+
+    <div class="feature-card">
+      <span class="emoji">🚚</span>
+      <h3>Suivi de production complet</h3>
+      <p>Surveillez la cadence, les livraisons et l’utilisation des ingrédients directement depuis votre tablette (offerte).</p>
+    </div>
+  </div>
+</section>
+
+  
   <section class="photo-gallery">
     <h2>Découvrez notre logiciel sur tablette (Offerte!)</h2>
     <div class="photos">
@@ -344,4 +439,5 @@
   
 </body>
 </html>
+
 
