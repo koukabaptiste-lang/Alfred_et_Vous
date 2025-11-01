@@ -26,18 +26,39 @@
     }
 
     /* ----------- LOGO ----------- */
-    img.logo {
-      max-width: 200px;
-      margin: 20px auto;
-      display: block;
-      opacity: 0;
-      transform: translateY(-10px);
-      animation: logoFade 1.2s ease-out forwards;
-    }
+img.logo {
+  max-width: 200px;
+  margin: 10px auto;
+  display: block;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: logoFade 1.2s ease-out forwards, logoFloat 6s ease-in-out infinite;
+}
 
-    @keyframes logoFade {
-      to { opacity: 1; transform: translateY(0); }
-    }
+/* Apparition initiale */
+@keyframes logoFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Effet de flottement continu */
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(0.5deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
 
     /* ----------- VIDÉO ----------- */
     .video-title {
@@ -458,6 +479,7 @@
 
 </body>
 </html>
+
 
 
 
