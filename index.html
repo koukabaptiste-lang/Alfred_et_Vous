@@ -31,32 +31,32 @@ img.logo {
   margin: 10px auto;
   display: block;
   opacity: 0;
-  transform: translateY(-10px);
-  animation: logoFade 1.2s ease-out forwards, logoFloat 6s ease-in-out infinite;
+  transform: translateY(0);
+  animation: logoFade 1.2s ease-out forwards,
+             floatY 8s ease-in-out infinite,
+             floatRotate 10s ease-in-out infinite;
+  will-change: transform;
 }
 
-/* Apparition initiale */
+/* Apparition */
 @keyframes logoFade {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Effet de flottement continu */
-@keyframes logoFloat {
-  0% {
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-4px) rotate(-1deg);
-  }
-  50% {
-    transform: translateY(2px) rotate(1deg);
-  }
-  75% {
-    transform: translateY(-3px) rotate(0.5deg);
-  }
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
+/* Mouvement vertical très fluide */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-3px); }
+  50% { transform: translateY(1.5px); }
+  75% { transform: translateY(-3px); }
+}
+
+/* Rotation douce et déphasée (ajoute du réalisme) */
+@keyframes floatRotate {
+  0%, 100% { rotate: 0deg; }
+  25% { rotate: -1deg; }
+  50% { rotate: 1deg; }
+  75% { rotate: -0.5deg; }
 }
 
 
@@ -479,6 +479,7 @@ img.logo {
 
 </body>
 </html>
+
 
 
 
